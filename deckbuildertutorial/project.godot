@@ -14,6 +14,10 @@ config/name="DeckBuilderTutorial"
 run/main_scene="uid://b5crf5qbthvuf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+Events="*res://global/events.gd"
+
 [display]
 
 window/size/viewport_width=256
@@ -41,6 +45,7 @@ right_mouse={
 
 [layer_names]
 
+2d_render/layer_3="enemies"
 2d_physics/layer_1="card_target_selector"
 2d_physics/layer_2="card_drop_area"
 
