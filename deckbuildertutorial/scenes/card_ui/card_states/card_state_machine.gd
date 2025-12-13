@@ -8,7 +8,6 @@ var states := {}
 
 
 func init(card: CardUI) -> void:
-	print(get_children())
 	for child in get_children():
 		if child is CardState:
 			states[child.state] = child
@@ -30,19 +29,28 @@ func on_gui_input(event:InputEvent) -> void:
 
 func on_mouse_entered() -> void:
 	if current_state:
-		current_state.enter()
+		current_state.on_mouse_enter()
 	
 func on_mouse_exited() -> void:
 	if current_state:
-		current_state.exit()
+		current_state.on_mouse_exit()
 
 func _on_transition_requested(from:CardState, to :CardState.State) -> void:
-	if current_state != from:
+	# 1. 判断状态的初始状态是否与当前状态一致 (或 状态未更改 这部分可以根据需要设定)
+	if current_state != from or current_state.state == to:
 		return
-	var new_state:CardState = states[to]
 	
-	if not new_state:
+	# 2. 判断将要转入的状态是否存在状态机可用合集中
+	if !states.has(to):
+		# 不存在 返回false
 		return
 		
-	new_state.enter()
-	current_state = new_state
+	# 3. 退出当前状态
+	current_state.exit()
+	
+	# 4. 更变当前状态的引用 
+	# 更变的引用需要从状态机可用集合中提取
+	current_state = states[to]
+	
+	# 5. 进入新状态
+	current_state.enter()

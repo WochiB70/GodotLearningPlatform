@@ -9,5 +9,4 @@ func _ready() -> void:
 		
 
 func _on_reparent_requested(child:CardUI) -> void:
-	print(typeof(child))
 	child.reparent(self);

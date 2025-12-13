@@ -37,9 +37,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_drop_point_dectetor_area_entered(area: Area2D) -> void:
-	print("鼠标进入碰撞区域")
 	if not target.has(area):
-		print("添加区域", area)
 		target.append(area)
 
 

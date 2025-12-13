@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_7gynk"]
 [ext_resource type="PackedScene" uid="uid://bvniutceiktpo" path="res://scenes/card_ui/card_ui.tscn" id="2_ffvsa"]
-[ext_resource type="Script" uid="uid://c5l6db0pf8b6y" path="res://scenes/ui/hand.gd" id="2_xd4uy"]
+[ext_resource type="Script" uid="uid://c6npwfa2h3v1n" path="res://scenes/ui/hand.gd" id="2_xd4uy"]
 [ext_resource type="PackedScene" uid="uid://bmbov07ogiphf" path="res://scenes/card_target_selector/card_target_selector.tscn" id="3_pll4o"]
 [ext_resource type="Resource" uid="uid://dwbgrbi84klpq" path="res://characters/warrior/cards/warrior_axe_attack.tres" id="4_0yh6x"]
 [ext_resource type="Resource" uid="uid://dp80ki27f23an" path="res://characters/warrior/cards/warrior_block.tres" id="5_h0kxc"]
@@ -22,16 +22,19 @@ texture = ExtResource("1_7gynk")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CardArea" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardArea"]
 position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_7gynk")
 debug_color = Color(0, 0.6, 0.701961, 0.117647)
 
 [node name="Enemy" type="Area2D" parent="."]
 position = Vector2(200, 72)
+collision_layer = 4
+monitoring = false
+monitorable = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 texture = ExtResource("6_fh7rg")
@@ -68,3 +71,6 @@ card = ExtResource("4_0yh6x")
 [node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_ffvsa")]
 layout_mode = 2
 card = ExtResource("5_h0kxc")
+
+[connection signal="area_entered" from="CardArea" to="CardTargetSelector" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CardArea" to="CardTargetSelector" method="_on_area_2d_area_exited"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvniutceiktpo"]
 
 [ext_resource type="Theme" uid="uid://l04r0yupxbeo" path="res://main_theme.tres" id="1_gy3gl"]
-[ext_resource type="Script" uid="uid://bpbjlk1b207by" path="res://scenes/card_ui/card_ui.gd" id="2_els2s"]
-[ext_resource type="Script" uid="uid://ccqwr1gr6bx8m" path="res://scenes/card_ui/card_states/card_state_machine.gd" id="3_psaan"]
-[ext_resource type="Script" uid="uid://bn78m53e2ba1r" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_orrkt"]
-[ext_resource type="Script" uid="uid://bnnhao3ex4vh8" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_yxx8x"]
-[ext_resource type="Script" uid="uid://dlo8tbexhlgqa" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_ci03s"]
-[ext_resource type="Script" uid="uid://dhl87rbnalhi0" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_js3ux"]
-[ext_resource type="Script" uid="uid://cqxt4tet5kkb0" path="res://scenes/card_ui/card_states/card_aiming_state.gd" id="8_yxx8x"]
+[ext_resource type="Script" uid="uid://bcyu36twbpxn2" path="res://scenes/card_ui/card_ui.gd" id="2_els2s"]
+[ext_resource type="Script" uid="uid://gk5fogo3n07y" path="res://scenes/card_ui/card_states/card_state_machine.gd" id="3_psaan"]
+[ext_resource type="Script" uid="uid://cpxoe64xe4t2s" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_orrkt"]
+[ext_resource type="Script" uid="uid://dleqent5d4yy2" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_yxx8x"]
+[ext_resource type="Script" uid="uid://b3qlg0vs28wnu" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_ci03s"]
+[ext_resource type="Script" uid="uid://bv555qgialev7" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_js3ux"]
+[ext_resource type="Script" uid="uid://c6sxrsasy8kus" path="res://scenes/card_ui/card_states/card_aiming_state.gd" id="8_yxx8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy3gl"]
 size = Vector2(25, 30)

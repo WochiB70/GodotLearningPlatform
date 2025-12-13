@@ -7,6 +7,7 @@
 **/export.cfg
 **/export_credentials.cfg
 
+**/*/.idea/
 **/*.gd.uid
 # Imported translations (automatically generated from CSV files)
 *.translation
@@ -15,3 +16,4 @@
 **/.mono/
 data_*/
 mono_crash.*.json
+
