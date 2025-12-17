@@ -13,7 +13,7 @@ func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_arm_started)
 	Events.card_aim_ended.connect(_on_card_aim_ended)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not targeting:
 		return
 	
@@ -40,7 +40,7 @@ func ease_out_cubic(number:float) -> float:
 	return 1.0 - pow(1.0 - number, 3.0)
 	
 func _on_card_arm_started(card:CardUI) -> void:
-	print("进入", card.target)
+	print("开始进行选择", card.targets)
 	if not card.card.is_single_targeted():
 		return
 	print("开始")
@@ -49,7 +49,7 @@ func _on_card_arm_started(card:CardUI) -> void:
 	area_2d.monitorable = true
 	current_card = card
 	
-func _on_card_aim_ended(card:CardUI) -> void:
+func _on_card_aim_ended(_card:CardUI) -> void:
 	targeting = false
 	card_arc.clear_points()
 	area_2d.position = Vector2.ZERO
@@ -58,14 +58,14 @@ func _on_card_aim_ended(card:CardUI) -> void:
 	current_card = null
 	
 func _on_area_2d_area_entered(area:Area2D) -> void:
-	print("jinru")
 	if not current_card or not targeting:
 		return
 	
-	if not current_card.target.has(area):
-		current_card.target.append(area)
+	print("发送碰撞，加入到队列中去",current_card.targets)
+	if not current_card.targets.has(area):
+		current_card.targets.append(area)
 		
 func _on_area_2d_area_exited(area:Area2D) -> void:
 	if not current_card or not targeting:
 		return
-	current_card.target.erase(area)
+	current_card.targets.erase(area)

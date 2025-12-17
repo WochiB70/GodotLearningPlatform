@@ -4,12 +4,13 @@ var played:bool
 
 func enter() -> void:
 	played = false
-	
-	if not cardUI.target.is_empty():
+	print("release", cardUI.targets)
+	if not cardUI.targets.is_empty():
+		print("使用卡片")
 		played = true
-		
+		cardUI.play()
 
-func on_input(event:InputEvent) -> void:
+func on_input(_event:InputEvent) -> void:
 	if played:
 		return
 		

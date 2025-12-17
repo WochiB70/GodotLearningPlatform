@@ -4,7 +4,7 @@ const MOUSE_Y_SNAPBACK_THRESHOLD := 138
 
 
 func enter() -> void:
-	cardUI.target.clear()
+	cardUI.targets.clear()
 	var offset := Vector2(cardUI.parent.size.x / 2, -cardUI.size.y / 2)
 	offset.x -= cardUI.size.x / 2
 	cardUI.animate_to_position(cardUI.parent.global_position + offset, 0.2)

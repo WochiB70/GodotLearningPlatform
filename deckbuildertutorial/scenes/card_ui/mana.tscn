@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6rvw68vyy12l"]
+
+[ext_resource type="Theme" uid="uid://l04r0yupxbeo" path="res://main_theme.tres" id="1_hlu4k"]
+[ext_resource type="Script" uid="uid://rv5yfbm5h2e6" path="res://scenes/card_ui/mana_ui.gd" id="2_2nooo"]
+
+[node name="ManaUI" type="Panel"]
+offset_left = 6.0
+offset_top = 121.0
+offset_right = 24.0
+offset_bottom = 139.0
+theme = ExtResource("1_hlu4k")
+script = ExtResource("2_2nooo")
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3/3"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -9,6 +9,7 @@ const HOVER_STYLEBOX = preload("res://scenes/card_ui/card_dragging_stylebox.tres
 const DRAG_STYLEBOX = preload("res://scenes/card_ui/card_hover_stylebox.tres")
 
 @export var card: Card: set = set_card
+@export var char_stats: CharactorStats
 
 @onready var panel: Panel = $Panel
 @onready var cost: Label = $Cost
@@ -16,7 +17,7 @@ const DRAG_STYLEBOX = preload("res://scenes/card_ui/card_hover_stylebox.tres")
 
 @onready var drop_point_dectetor: Area2D = $DropPointDectetor
 @onready var cardStateMachine: CardStateMachine = $CardStateMachine as CardStateMachine
-@onready var target:Array[Node] = []
+@onready var targets:Array[Node] = []
 
 var parent: Control
 var tween: Tween
@@ -31,6 +32,12 @@ func _input(event: InputEvent)  -> void:
 func animate_to_position(new_position:Vector2, duration:float) -> void:
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position", new_position, duration)
+
+func play() -> void:
+	if not card:
+		return
+	card.play(targets, char_stats)
+	queue_free()
 
 func _on_mouse_entered() -> void:
 	cardStateMachine.on_mouse_entered();
@@ -51,9 +58,9 @@ func set_card(value:Card) -> void:
 	icon.texture = card.icon
 
 func _on_drop_point_dectetor_area_entered(area: Area2D) -> void:
-	if not target.has(area):
-		target.append(area)
+	if not targets.has(area):
+		targets.append(area)
 
 
 func _on_drop_point_dectetor_area_exited(area: Area2D) -> void:
-	target.erase(area)
+	targets.erase(area)

@@ -20,7 +20,7 @@ func on_input(event:InputEvent) -> void:
 	var cancel: bool  = event.is_action_pressed("right_mouse")
 	var confirm: bool = event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse")
 	
-	if single_targeted and mouse_motion and cardUI.target.size() > 0:
+	if single_targeted and mouse_motion and cardUI.targets.size() > 0:
 		print("进入Aiming状态")
 		transition_requested.emit(self, CardState.State.AIMING)
 		return
