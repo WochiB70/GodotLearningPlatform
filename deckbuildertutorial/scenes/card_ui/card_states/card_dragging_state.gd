@@ -8,8 +8,7 @@ func enter() -> void:
 	if ui_layer:
 		cardUI.reparent(ui_layer)
 	
-	cardUI.color.color = Color.NAVY_BLUE
-	cardUI.state.text = "DRAGGING"
+	cardUI.panel.set("theme_override_styles/panel", cardUI.DRAG_STYLEBOX)
 	
 	minimun_drag_time_elapsed = false
 	var threshold_time := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)

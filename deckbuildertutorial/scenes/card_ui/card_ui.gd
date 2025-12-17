@@ -4,11 +4,17 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-@export var card: Card
+const BASE_STYLEBOX = preload("res://scenes/card_ui/card_base_stylebox.tres")
+const HOVER_STYLEBOX = preload("res://scenes/card_ui/card_dragging_stylebox.tres")
+const DRAG_STYLEBOX = preload("res://scenes/card_ui/card_hover_stylebox.tres")
 
-@onready var color: ColorRect = $Color
+@export var card: Card: set = set_card
+
+@onready var panel: Panel = $Panel
+@onready var cost: Label = $Cost
+@onready var icon: TextureRect = $Icon
+
 @onready var drop_point_dectetor: Area2D = $DropPointDectetor
-@onready var state: Label = $State
 @onready var cardStateMachine: CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var target:Array[Node] = []
 
@@ -35,6 +41,14 @@ func _on_mouse_exited() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	cardStateMachine.on_gui_input(event)
 
+func set_card(value:Card) -> void:
+	if not is_node_ready():
+		await ready
+		
+	card = value
+	cost.text = str(card.cost)
+	print(icon)
+	icon.texture = card.icon
 
 func _on_drop_point_dectetor_area_entered(area: Area2D) -> void:
 	if not target.has(area):

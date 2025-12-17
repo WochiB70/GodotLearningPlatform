@@ -4,10 +4,7 @@ const MOUSE_Y_SNAPBACK_THRESHOLD := 138
 
 
 func enter() -> void:
-	cardUI.color.color = Color.WEB_PURPLE
-	cardUI.state.text = "AIMING"
 	cardUI.target.clear()
-	print("进入aiming状态，此时得target数组为",cardUI.target)
 	var offset := Vector2(cardUI.parent.size.x / 2, -cardUI.size.y / 2)
 	offset.x -= cardUI.size.x / 2
 	cardUI.animate_to_position(cardUI.parent.global_position + offset, 0.2)

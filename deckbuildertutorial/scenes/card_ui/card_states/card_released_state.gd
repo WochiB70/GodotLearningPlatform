@@ -3,8 +3,6 @@ extends CardState
 var played:bool
 
 func enter() -> void:
-	cardUI.color.color = Color.DARK_VIOLET
-	cardUI.state.text = "RELEASED"
 	played = false
 	
 	if not cardUI.target.is_empty():
