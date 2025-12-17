@@ -9,11 +9,15 @@ func enter() -> void:
 		cardUI.reparent(ui_layer)
 	
 	cardUI.panel.set("theme_override_styles/panel", cardUI.DRAG_STYLEBOX)
+	Events.card_drag_started.emit(cardUI)
 	
 	minimun_drag_time_elapsed = false
 	var threshold_time := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)
 	threshold_time.timeout.connect(func():minimun_drag_time_elapsed = true)
-	
+
+func exit() -> void:
+	Events.card_drag_ended.emit(cardUI)
+
 func on_input(event:InputEvent) -> void:
 	var single_targeted := cardUI.card.is_single_targeted()
 	var mouse_motion := event is InputEventMouseMotion

@@ -5,6 +5,10 @@ extends Panel
 
 @onready var mana_label: Label = $ManaLabel
 
+func _ready() -> void:
+	await get_tree().create_timer(2).timeout
+	char_stats.mana = 2
+
 func set_char_stats(value: CharactorStats) -> void:
 	char_stats = value
 	
