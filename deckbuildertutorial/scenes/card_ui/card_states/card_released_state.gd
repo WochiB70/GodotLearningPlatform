@@ -9,6 +9,7 @@ func enter() -> void:
 		print("使用卡片")
 		played = true
 		cardUI.play()
+		Events.tooltip_hide_requested.emit()
 
 func on_input(_event:InputEvent) -> void:
 	if played:
