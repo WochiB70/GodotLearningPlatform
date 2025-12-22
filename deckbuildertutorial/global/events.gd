@@ -8,3 +8,6 @@ signal card_drag_ended(card_ui:CardUI)
 
 signal card_tooltip_requested(icon:Texture, text:String)
 signal tooltip_hide_requested
+
+# 玩家事件
+signal player_hand_drawn
