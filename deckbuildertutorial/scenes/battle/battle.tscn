@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5crf5qbthvuf"]
+[gd_scene load_steps=15 format=3 uid="uid://b5crf5qbthvuf"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_7gynk"]
 [ext_resource type="Script" uid="uid://clweivcm3pdiq" path="res://scenes/battle/battle.gd" id="1_kd6yx"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c6rvw68vyy12l" path="res://scenes/card_ui/mana.tscn" id="9_fisqk"]
 [ext_resource type="Resource" uid="uid://bp8gd02qyicy7" path="res://characters/warrior/warrior.tres" id="9_oiw7q"]
 [ext_resource type="PackedScene" uid="uid://bsu1ne82b5oda" path="res://scenes/ui/tooltip.tscn" id="11_mxe8n"]
+[ext_resource type="Theme" uid="uid://l04r0yupxbeo" path="res://main_theme.tres" id="13_icoan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gynk"]
 size = Vector2(256, 100)
@@ -71,6 +72,22 @@ char_stats = ExtResource("9_oiw7q")
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("11_mxe8n")]
 offset_top = 6.0
 offset_bottom = 42.0
+
+[node name="EndTurnButton" type="Button" parent="BattleUI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -20.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("13_icoan")
+text = "回合结束"
 
 [connection signal="area_entered" from="CardArea" to="CardTargetSelector" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="CardArea" to="CardTargetSelector" method="_on_area_2d_area_exited"]

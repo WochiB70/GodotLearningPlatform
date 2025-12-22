@@ -15,6 +15,12 @@ func _ready() -> void:
 func _on_card_played(_card:Card) -> void:
 	cards_played_this_turn += 1
 
+func discard_card(card:CardUI) -> void:
+	card.queue_free()
+
+func disable_hand() -> void:
+	for card in get_children():
+		card.disabled = true
 
 func add_card(card: Card) -> void:
 	var new_card_ui := card_ui.instantiate()

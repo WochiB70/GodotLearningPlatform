@@ -11,3 +11,5 @@ signal tooltip_hide_requested
 
 # 玩家事件
 signal player_hand_drawn
+signal player_hand_discarded
+signal player_turn_ended
