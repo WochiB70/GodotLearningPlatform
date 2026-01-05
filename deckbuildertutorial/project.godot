@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="DeckBuilderTutorial"
 
+[gui]
+
+theme/custom="uid://l04r0yupxbeo"
+
 [input]
 
 left_mouse={
