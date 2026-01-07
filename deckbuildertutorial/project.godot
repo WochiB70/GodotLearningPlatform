@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 Events="*res://global/events.gd"
+Shaker="*res://global/shaker.gd"
 
 [display]
 
